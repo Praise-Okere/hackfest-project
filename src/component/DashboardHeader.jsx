@@ -1,14 +1,17 @@
 import { BellDotIcon, LayoutDashboard, SearchIcon } from "lucide-react";
 import Button from "./Button";
+import { useSidebar } from "../hooks/useSidebar";
 
 const DashboardHeader = () => {
+  const { toggleSidebar } = useSidebar();
+
   return (
     <div className='flex justify-between items-center py-3 px-2 bg-white'>
-      <div>
-        <LayoutDashboard />
+      <div className='hidden max-md:flex'>
+        <LayoutDashboard onClick={toggleSidebar} />
       </div>
-      <div className='flex justify-center items-center gap-8 mr-10'>
-        <div className='bg-white border-[0.7px] w-[400px] border-black flex justify-between items-center rounded-full '>
+      <div className='flex justify-between items-center w-full gap-8 mr-10'>
+        <div className='bg-white border-[0.7px] w-[300px] max-md:hidden border-black flex justify-between items-center rounded-full '>
           <input
             type='search'
             name=''
@@ -17,13 +20,15 @@ const DashboardHeader = () => {
           />
           <SearchIcon className='mr-3' />
         </div>
-        <div>
-          <Button variant={"light"}>
-            <BellDotIcon />
-          </Button>
-        </div>
-        <div>
-          <Button variant={"light"}>User</Button>
+        <div className='flex justify-end w-full items-center gap-3'>
+          <div>
+            <Button variant={"light"}>
+              <BellDotIcon />
+            </Button>
+          </div>
+          <div>
+            <Button variant={"light"}>User</Button>
+          </div>
         </div>
       </div>
     </div>

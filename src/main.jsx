@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { SidebarProvider } from "./hooks/useSidebar.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <SidebarProvider>
+        <App />
+      </SidebarProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -93,7 +93,7 @@ const DashboardTitle = () => {
   ];
 
   return (
-    <div className='flex justify-between items-start'>
+    <div className='flex max-lg:flex-col justify-between items-start'>
       <div className='flex flex-1 flex-col justify-center items-start gap-10'>
         <div className='flex flex-col gap-4'>
           <h3 className='text-xl font-medium'>Welcome back, NxtGen</h3>
@@ -102,35 +102,32 @@ const DashboardTitle = () => {
             in the last month.
           </p>
         </div>
-        <div className='flex justify-start items-start gap-4'>
+        <div className='grid grid-cols-3 max-xl:grid-cols-2 gap-4'>
           {statistics.map((statistic, i) => (
             <div
               key={i}
-              className='flex flex-col justify-start items-start gap-3 bg-white px-4 py-4 pr-10 rounded-3xl border-[0.1px] border-black/30'
+              className='flex flex-col justify-start items-start gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'
             >
               {statistic.icon}
               <div className='flex justify-start items-center  text-sm gap-3 text-black/30'>
-                <div className='text-nowrap'>{statistic.name}</div>
+                <div className=''>{statistic.name}</div>
                 <div
-                  className={`flex justify-center items-center gap-2 py-1 px-2 rounded ${
+                  className={`flex justify-center items-center gap-1 py-[2px] px-1 rounded ${
                     statistic.incremented ? "bg-[#c1e2c7]" : "bg-[#ffb3b3]"
                   }`}
                 >
-                  <span>
+                  <div className='-z-30'>
                     {
                       <Triangle
-                        className={`w-3 ${
+                        className={`w-[7px] ${
                           statistic.incremented ? "rotate-0" : "rotate-180"
                         }`}
                         fill={`${
                           statistic.incremented ? "#319F43" : "#FF0000"
                         }`}
-                        stroke={`${
-                          statistic.incremented ? "#319F43" : "#FF0000"
-                        }`}
                       />
                     }
-                  </span>{" "}
+                  </div>{" "}
                   {statistic.value}
                 </div>
               </div>
@@ -138,7 +135,7 @@ const DashboardTitle = () => {
             </div>
           ))}
         </div>
-        <div className='flex flex-col items-start gap-3  justify-center px-4 py-4 pr-10 rounded-3xl w-full bg-white border border-black/30'>
+        <div className='flex flex-col items-start gap-3 -z-30 justify-center px-4 py-4 pr-10 rounded-3xl w-full max-w-[650px] bg-white border border-black/30'>
           <h3 className='text-sm font-medium text-black/30'>Sales Activity</h3>
           <h3 className='text-lg font-medium'>$523,292.81</h3>
           <BarChartComponent />

@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
-const SideNav = ({ isSidebarOpen }) => {
+const SideNav = () => {
   const links = [
     {
       name: "Dashboard",
@@ -32,11 +32,11 @@ const SideNav = ({ isSidebarOpen }) => {
   ];
 
   return (
-    <aside className=' border-r border-gray-800 h-screen p-4'>
+    <aside className='bg-background border-r z-50 border-gray-800 h-screen p-4'>
       <div>
-        <div className='mb-8'>
+        <div className='flex justify-between items-center mb-8'>
           <Link to={"/"}>
-            <span className='text-xl'>New Logo.</span>
+            <span>New Logo.</span>
           </Link>
         </div>
         <div className='flex flex-col gap-4'>
@@ -45,17 +45,17 @@ const SideNav = ({ isSidebarOpen }) => {
               key={i}
               to={link.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 p-2 rounded-md w-[80%] ml-2 hover:text-white ${
+                `flex items-center gap-3 p-2 rounded-md w-[80%] ml-1 hover:text-white ${
                   isActive ? "bg-accent text-white" : "hover:bg-accentHover "
                 }`
               }
             >
-              <link.icon className='w-5 h-5' />
+              <link.icon className='min-w-5 min-h-5' />
               <span>{link.name}</span>
             </NavLink>
           ))}
         </div>
-        <div className='mt-80 ml-2'>
+        <div className='mt-80 ml-1'>
           <NavLink
             to='/settings'
             className={({ isActive }) =>

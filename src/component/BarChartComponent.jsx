@@ -16,10 +16,6 @@ const salesData = [
   { name: "Q421", productA: 10, productB: 14, productC: 18 },
   { name: "Q122", productA: 6, productB: 12, productC: 17 },
   { name: "Q222", productA: 14, productB: 10, productC: 19 },
-  { name: "Q322", productA: 8, productB: 13, productC: 20 },
-  { name: "Q422", productA: 10, productB: 11, productC: 17 },
-  { name: "Q123", productA: 9, productB: 14, productC: 19 },
-  { name: "Q223", productA: 12, productB: 13, productC: 20 },
 ];
 
 const BarChartComponent = () => {
