@@ -7,7 +7,7 @@ const Button = ({ variant, children, icon, to }) => {
       "flex",
       "justify-center",
       "items-center",
-      "gap-1",
+      "gap-3",
       "rounded-full",
       "text-nowrap",
       "cursor-pointer",
@@ -76,8 +76,10 @@ const Button = ({ variant, children, icon, to }) => {
 
   return (
     <div className={variantClass}>
-      {icon}
-      <Link to={to}>{children}</Link>
+      <div>
+        <Link to={to}>{children}</Link>
+      </div>
+      <div>{icon}</div>
     </div>
   );
 };

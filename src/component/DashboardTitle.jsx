@@ -92,6 +92,30 @@ const DashboardTitle = () => {
     },
   ];
 
+  const transactions = [
+    {
+      description: "Transfer to NIC Nigeria Limited",
+      amount: "$23,526.11",
+      date: "November 28, 2024",
+      status: "Paid",
+      transactionNumber: "#75739",
+    },
+    {
+      description: "Transfer to NIC Nigeria Limited",
+      amount: "$23,526.11",
+      date: "November 28, 2024",
+      status: "Paid",
+      transactionNumber: "#75739",
+    },
+    {
+      description: "Transfer to NIC Nigeria Limited",
+      amount: "$23,526.11",
+      date: "November 28, 2024",
+      status: "Paid",
+      transactionNumber: "#75739",
+    },
+  ];
+
   return (
     <div className='flex max-lg:flex-col justify-start max-md:items-center w-full items-start gap-8'>
       <div className='flex flex-col justify-center items-start gap-10'>
@@ -139,6 +163,47 @@ const DashboardTitle = () => {
           <h3 className='text-sm font-medium text-black/30'>Sales Activity</h3>
           <h3 className='text-lg font-medium'>$523,292.81</h3>
           <BarChartComponent />
+        </div>
+
+        {/* Table */}
+        <div className='rounded-3xl max-w-[650px] bg-white border border-black/30 overflow-hidden'>
+          <table className='border-collapse border-spacing-0 text-left text-gray-700'>
+            <thead>
+              <tr className='bg-gray-200 text-sm font-medium'>
+                <th className='px-6 py-4'>Recent Transactions</th>
+                <th className='px-6 py-4'>Amount</th>
+                <th className='px-6 py-4 max-md:hidden'>Date</th>
+                <th className='px-6 py-4'>Status</th>
+                <th className='px-6 py-4 max-md:hidden'>Transaction #</th>
+              </tr>
+            </thead>
+            <tbody>
+              {transactions.map((transaction, index) => (
+                <tr
+                  key={index}
+                  className={`border-t border-black/30 bg-gray-50`}
+                >
+                  <td className='px-6 py-4 text-sm font-light'>
+                    {transaction.description}
+                  </td>
+                  <td className='px-6 py-4 text-sm font-light'>
+                    {transaction.amount}
+                  </td>
+                  <td className='px-6 py-4 text-sm font-light max-md:hidden'>
+                    {transaction.date}
+                  </td>
+                  <td className='px-6 py-4 text-sm font-light'>
+                    <span className='px-4 py-1 rounded-xl text-sm bg-green-100 text-green-600'>
+                      {transaction.status}
+                    </span>
+                  </td>
+                  <td className='px-6 py-4 text-sm max-md:hidden font-light'>
+                    {transaction.transactionNumber}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
