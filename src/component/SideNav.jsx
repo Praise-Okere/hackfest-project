@@ -1,6 +1,7 @@
 import {
   ChartColumnIcon,
   LayoutDashboardIcon,
+  Presentation,
   Settings,
   Users,
   Wallet,
@@ -28,6 +29,11 @@ const SideNav = () => {
       name: "Customers",
       path: "/dashboard/customers",
       icon: Users,
+    },
+    {
+      name: "Guides and Demos",
+      path: "/dashboard/guides-demos",
+      icon: Presentation,
     },
   ];
 

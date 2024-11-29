@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardMain from "./component/DashboardMain";
 import Finances from "./component/Finances";
 import ConnectPage from "./pages/ConnectPage";
+import Guide from "./component/Guide";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           {/* <Route path="analytics" element={<Analytics />} />
           <Route path="customers" element={<Customers />} />
           <Route path="settings" element={<Settings />} /> */}
+          <Route path='guides-demos' element={<Guide />} />
         </Route>
         <Route path='/connect-wallet' element={<ConnectPage />} />
       </Routes>
