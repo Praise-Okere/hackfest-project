@@ -32,7 +32,7 @@ const SideNav = ({ isSidebarOpen }) => {
   ];
 
   return (
-    <aside className='w-[300px] border-r border-gray-800 h-screen p-4'>
+    <aside className=' border-r border-gray-800 h-screen p-4'>
       <div>
         <div className='mb-8'>
           <Link to={"/"}>
@@ -45,7 +45,7 @@ const SideNav = ({ isSidebarOpen }) => {
               key={i}
               to={link.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 p-2 rounded-md w-[80%] ml-6 hover:text-white ${
+                `flex items-center gap-3 p-2 rounded-md w-[80%] ml-2 hover:text-white ${
                   isActive ? "bg-accent text-white" : "hover:bg-accentHover "
                 }`
               }
@@ -55,7 +55,7 @@ const SideNav = ({ isSidebarOpen }) => {
             </NavLink>
           ))}
         </div>
-        <div className='mt-80 ml-6'>
+        <div className='mt-80 ml-2'>
           <NavLink
             to='/settings'
             className={({ isActive }) =>

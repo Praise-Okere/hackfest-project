@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import DashboardMain from "./component/DashboardMain";
 import Finances from "./component/Finances";
+import ConnectPage from "./pages/ConnectPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="customers" element={<Customers />} />
           <Route path="settings" element={<Settings />} /> */}
         </Route>
+        <Route path='/connect-wallet' element={<ConnectPage />} />
       </Routes>
     </main>
   );

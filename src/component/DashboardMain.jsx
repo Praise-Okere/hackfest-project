@@ -3,9 +3,11 @@ import DashboardTitle from "./DashboardTitle";
 
 const DashboardMain = () => {
   return (
-    <div className='w-full'>
-      <DashboardHeader />
-      <div className='m-5 mt-10'>
+    <div className=''>
+      <div className='sticky top-0'>
+        <DashboardHeader />
+      </div>
+      <div className='m-5 mt-20'>
         <DashboardTitle />
       </div>
     </div>
