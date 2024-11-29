@@ -46,7 +46,7 @@ const Button = ({ variant, children, icon, to }) => {
           ],
           dashboard: [
             "bg-white",
-            "rounded-[5px]",
+            "rounded-md",
             "border-[0.3px]",
             "border-black",
             "w-[160px]",
@@ -54,7 +54,7 @@ const Button = ({ variant, children, icon, to }) => {
           ],
           dashboardGray: [
             "bg-[#B6BFC3]",
-            "rounded-[5px]",
+            "rounded-md",
             "border-[0.3px]",
             "border-[#B6BFC3]",
             "w-[160px]",
