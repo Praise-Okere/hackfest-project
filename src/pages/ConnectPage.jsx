@@ -13,9 +13,9 @@ const ConnectPage = () => {
         <div className='absolute top-auto right-auto left-0 bottom-0 h-[500px] w-[500px] -translate-x-[50%] -translate-y-[70%] rounded-full bg-[rgba(33,144,195,0.5)] opacity-50 blur-[80px]'></div>
       </div>
 
-      <div className='w-full max-w-5xl flex justify-between items-center p-6'>
+      <div className='w-full max-w-5xl flex justify-between max-lg:justify-center items-center p-6'>
         {/* Left Content */}
-        <div className='bg-white w-[400px] h-[500px] rounded-xl border border-black/30'></div>
+        <div className='bg-white w-[400px] h-[500px] rounded-xl max-lg:hidden border border-black/30'></div>
 
         {/* Right Content */}
         <div className='max-w-md text-center'>
