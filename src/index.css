@@ -25,3 +25,16 @@ body {
   line-height: 15px;
   font-weight: 500;
 }
+
+/* Utility classes for the navbar */
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.hover\:border-black:hover {
+  border-color: black;
+}
+
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}

@@ -2,13 +2,15 @@ import Button from "../component/Button";
 
 const Hero = () => {
   const features = ["Fast Transactions", "Easy Sign Up", "Ease of Usage"];
+
   return (
-    <div className='flex flex-col justify-center items-center gap-10'>
-      <div className='flex flex-col justify-center items-center text-center mt-28 mx-28'>
-        <h1 className='text-5xl font-medium'>
+    <div className='flex flex-col justify-center items-center gap-10 px-4 md:px-10'>
+      {/* Heading and Description */}
+      <div className='flex flex-col justify-center items-center text-center mt-10 md:mt-28 md:mx-28'>
+        <h1 className='text-3xl md:text-5xl font-medium leading-tight'>
           Building Bridges to Financial Inclusion for African Markets
         </h1>
-        <p className='font-light'>
+        <p className='font-light text-sm md:text-base mt-4'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -17,13 +19,17 @@ const Hero = () => {
           pariatur.
         </p>
       </div>
-      <div className='flex justify-center items-center gap-5'>
+
+      {/* Buttons */}
+      <div className='flex flex-wrap justify-center items-center gap-5'>
         <Button variant={"primary"} to={"/connect-wallet"}>
           Create Account
         </Button>
         <Button variant={"light"}>Watch Tutorial</Button>
       </div>
-      <div className='flex justify-center items-center gap-28'>
+
+      {/* Features */}
+      <div className='flex flex-wrap justify-center items-center gap-5 md:gap-10'>
         {features.map((feature, i) => (
           <div
             key={i}
@@ -41,13 +47,15 @@ const Hero = () => {
                 fill='black'
               />
             </svg>
-
-            <span>{feature}</span>
+            <span className='text-sm'>{feature}</span>
           </div>
         ))}
       </div>
-      <div className='flex justify-center items-center gap-28'>
-        <div className='flex flex-col justify-center items-center gap-6 bg-secondary px-10 py-5 rounded-3xl'>
+
+      {/* Info Cards */}
+      <div className='grid grid-cols-1 2xl:grid-cols-3 gap-10 md:gap-14 mt-10'>
+        {/* Transaction Card */}
+        <div className='flex flex-col justify-center items-center gap-6 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
           <div className='flex flex-col justify-center items-center gap-1'>
             <div className='bg-accent p-[10px] rounded-full'>
               <span>
@@ -87,8 +95,7 @@ const Hero = () => {
         </div>
 
         {/* Converter */}
-        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-10 py-5 rounded-3xl'>
-          {/* First Input Row */}
+        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
           <div className='flex items-center bg-white rounded-full gap-4 pr-4 w-full'>
             <div className='bg-primary text-white rounded-full py-4 px-8 text-sm font-semibold'>
               SUI
@@ -99,15 +106,11 @@ const Hero = () => {
               className='flex-grow text-right rounded-full font-medium text-lg outline-none'
             />
           </div>
-
-          {/* Swap Icon */}
           <div className='flex justify-center items-center'>
             <div className='bg-gray-700 text-white rounded-full w-8 h-8 flex justify-center items-center'>
               ⇅
             </div>
           </div>
-
-          {/* Second Input Row */}
           <div className='flex items-center bg-white rounded-full gap-4 pr-4 w-full'>
             <div className='bg-primary text-white rounded-full py-4 px-8 text-sm font-semibold'>
               NGN
@@ -118,13 +121,11 @@ const Hero = () => {
               className='flex-grow text-right rounded-full font-medium text-lg outline-none'
             />
           </div>
-
-          {/* Convert Button */}
           <Button variant={"dark"}>Convert</Button>
         </div>
 
-        {/* Info 2 */}
-        <div className='flex flex-col justify-center items-center gap-6 bg-secondary px-20 py-6 rounded-3xl'>
+        {/* Stash Sent */}
+        <div className='flex flex-col justify-center items-center gap-6 bg-secondary px-6 md:px-20 py-6 rounded-3xl w-full'>
           <div className='flex flex-col justify-center items-center gap-1'>
             <div className='bg-accent p-[10px] rounded-full'>
               <span>

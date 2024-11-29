@@ -17,6 +17,8 @@ export const SidebarProvider = ({ children }) => {
       // Close the sidebar if the screen width is less than 768px
       if (window.innerWidth < 768) {
         setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
       }
     };
 

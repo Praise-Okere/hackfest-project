@@ -93,8 +93,8 @@ const DashboardTitle = () => {
   ];
 
   return (
-    <div className='flex max-lg:flex-col justify-between items-start'>
-      <div className='flex flex-1 flex-col justify-center items-start gap-10'>
+    <div className='flex max-lg:flex-col justify-start max-md:items-center w-full items-start gap-8'>
+      <div className='flex flex-col justify-center items-start gap-10'>
         <div className='flex flex-col gap-4'>
           <h3 className='text-xl font-medium'>Welcome back, NxtGen</h3>
           <p className='font-light'>
@@ -102,7 +102,7 @@ const DashboardTitle = () => {
             in the last month.
           </p>
         </div>
-        <div className='grid grid-cols-3 max-xl:grid-cols-2 gap-4'>
+        <div className='grid grid-cols-3 max-xl:grid-cols-2 gap-4 -z-10'>
           {statistics.map((statistic, i) => (
             <div
               key={i}
@@ -116,7 +116,7 @@ const DashboardTitle = () => {
                     statistic.incremented ? "bg-[#c1e2c7]" : "bg-[#ffb3b3]"
                   }`}
                 >
-                  <div className='-z-30'>
+                  <div>
                     {
                       <Triangle
                         className={`w-[7px] ${
@@ -143,11 +143,69 @@ const DashboardTitle = () => {
       </div>
 
       {/* Right Side */}
-      <div className='flex justify-center items-end gap-6'>
-        <Button variant={"dashboard"}>View Transactions</Button>
-        <Button variant={"dashboardGray"} icon={<Download className='w-4' />}>
-          Export Statement
-        </Button>
+      <div className='flex flex-col justify-center items-start gap-10'>
+        <div className='flex justify-center mt-8 items-end gap-6'>
+          <Button variant={"dashboard"}>View Transactions</Button>
+          <Button variant={"dashboardGray"} icon={<Download className='w-4' />}>
+            Export Statement
+          </Button>
+        </div>
+
+        {/* Balances Tab */}
+        <div className='flex flex-col justify-start items-start w-full gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'>
+          <span>Balances</span>
+          {/* Total Balance */}
+          <div className='flex justify-between items-center w-full bg-[#B6BFC3] rounded-md border-[0.3px] border-[#B6BFC3] py-2 px-3 text-sm font-light'>
+            <p>Total Balance</p>
+            <p className='font-medium'>$247,821.53</p>
+          </div>
+          {/* Other Balances */}
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Feeding in Africa</p>
+            <p className='font-medium'>$17,521.93</p>
+          </div>
+        </div>
+
+        {/* Transactions Tab */}
+        <div className='flex flex-col justify-start items-start w-full gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'>
+          <div>
+            <span className='font-medium'>Top Transactions</span>
+            <p className='text-xs font-light'>last 30 days</p>
+          </div>
+          {/* Transactions */}
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Transfer to NIC Nigeria Limited</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Transfer to NIC Nigeria Limited</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Transfer to NIC Nigeria Limited</p>
+          </div>
+          <div className='flex justify-between items-center w-full rounded-md py-2 px-3 text-sm font-light'>
+            <p>Transfer to NIC Nigeria Limited</p>
+          </div>
+        </div>
       </div>
     </div>
   );
