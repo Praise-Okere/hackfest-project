@@ -23,17 +23,6 @@ const Navbar = () => {
   return (
     <div className='relative overflow-visible'>
       <div
-        className='absolute inset-0 -z-10'
-        style={{
-          backgroundImage: "url('/path-to-your-image.png')",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          height: "120%", // Extend the image beyond the container
-          transform: "translateY(-10%)", // Shift the image upwards slightly
-        }}
-      ></div>
-      <div
         className='flex justify-between items-center py-4 px-10 '
         style={{
           backgroundImage: "url('/navBg.png')",
