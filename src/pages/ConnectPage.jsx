@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useZK } from '../auth/getzkJWT';
 
 const ConnectPage = () => {
+  const { loginWithZK } = useZK()
+
   return (
     <div className='min-h-screen flex items-center justify-center '>
       {/* <div className='absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[radial-gradient(circle, hsl(201, 70%, 88%) 0%, hsla(0, 0%, 100%, 0) 70%, rgb(233, 246, 254) 100%)]'></div> */}
@@ -26,7 +29,7 @@ const ConnectPage = () => {
             ad minim veniam, quis nostrud exercitation ullamco.
           </p>
           <div className='flex flex-col items-center gap-4'>
-            <button className='flex items-center justify-between gap-12 w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>
+            <button onClick={loginWithZK} className='flex items-center justify-between gap-12 w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>
               <svg
                 width='25'
                 height='26'

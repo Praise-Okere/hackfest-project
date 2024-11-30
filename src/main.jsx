@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { SidebarProvider } from "./hooks/useSidebar.jsx";
+import { AuthProvider } from "./auth/getzkJWT.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <SidebarProvider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </SidebarProvider>
     </BrowserRouter>
   </StrictMode>
