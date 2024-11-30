@@ -26,7 +26,7 @@ const ConnectPage = () => {
             ad minim veniam, quis nostrud exercitation ullamco.
           </p>
           <div className='flex flex-col items-center gap-4'>
-            <button className='flex items-center justify-between gap-12 w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>
+            <button className='flex items-center justify-between gap-12 w-full max-w-sm bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>
               <svg
                 width='25'
                 height='26'
@@ -57,7 +57,7 @@ const ConnectPage = () => {
             <span className='text-gray-400'>OR</span>
             <Link
               to={"/dashboard/home"}
-              className='flex items-center justify-between w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'
+              className='flex items-center justify-between w-full max-w-sm bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'
             >
               <button className='flex items-center justify-between w-full'>
                 <svg

@@ -7,6 +7,7 @@ import Analytics from "./component/Analytics";
 import ConnectPage from "./pages/ConnectPage";
 import Guide from "./component/Guide";
 import Customers from "./component/Customers";
+import CreateAccountPage from "./pages/CreateAccountPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='guides-demos' element={<Guide />} />
         </Route>
         <Route path='/connect-wallet' element={<ConnectPage />} />
+        <Route path='/create-account' element={<CreateAccountPage />} />
       </Routes>
     </main>
   );

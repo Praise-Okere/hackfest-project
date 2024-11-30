@@ -1,4 +1,5 @@
 import { useSidebar } from "../hooks/useSidebar";
+import Button from "./Button";
 import DashboardHeader from "./DashboardHeader";
 import customer from "/Group.png";
 
@@ -29,6 +30,24 @@ const Customers = () => {
     },
   ];
 
+  const customers = [
+    {
+      icon: customer,
+      name: "John Iluobe",
+      details: "Window Repairs and Installation",
+    },
+    {
+      icon: customer,
+      name: "Kehinde Sam",
+      details: "Healthcare Consultant",
+    },
+    {
+      icon: customer,
+      name: "Sam Blackshear",
+      details: "Window Repairs and Installation",
+    },
+  ];
+
   return (
     <div
       className={`flex flex-col  ${isSidebarOpen ? "md:ml-[300px]" : "ml-0"}`}
@@ -37,8 +56,8 @@ const Customers = () => {
         <DashboardHeader />
       </div>
 
-      <main className='m-5 mt-10'>
-        <div className='my-7'>
+      <main className='m-5 mt-10 '>
+        <div className='my-7 flex flex-col gap-6'>
           <div className='text-xl flex items-center gap-3'>
             <h3>Top Transactions</h3>
 
@@ -55,13 +74,13 @@ const Customers = () => {
               />
             </svg>
           </div>
-          <div>
+          <div className='flex flex-col justify-start gap-12'>
             {transactions.map((transaction, i) => (
               <div
                 key={i}
-                className='flex justify-between items-center bg-white border-[0.24px] border-black/30 rounded-2xl px-5 py-6'
+                className='flex justify-between items-center max-md:flex-col gap-4 bg-white border-[0.24px] border-black/30 rounded-2xl px-5 py-6 max-w-[780px]'
               >
-                <div className='flex justify-center items-center gap-3'>
+                <div className='flex justify-center items-center  gap-3'>
                   <img src={transaction.icon} alt='pic' />
                   <div className='flex flex-col justify-start items-start gap-1'>
                     <h3 className='text-xl'>{transaction.name}</h3>
@@ -69,13 +88,38 @@ const Customers = () => {
                   </div>
                 </div>
                 <div className='flex flex-col justify-start items-end gap-1'>
-                  <h3 className='text-xl'>
+                  <h3 className='text-xl text-right'>
                     {transaction.amount} in Transactions{" "}
                   </h3>
-                  <p className='text-sm'>{transaction.transfers}</p>
+                  <p className='text-sm text-right'>{transaction.transfers}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className='flex flex-col max-md:justify-center max-md:items-center gap-6'>
+            <div className='text-xl flex mt-7 gap-3'>
+              <h3>Most recent Customers</h3>
+            </div>
+            <div className='grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 max-w-[800px] '>
+              {customers.map((customer, i) => (
+                <div
+                  key={i}
+                  className='bg-white border-[0.24px] border-black/30 rounded-2xl py-6 max-w-[230px] '
+                >
+                  <div className='flex flex-col justify-center items-center gap-2 p-3'>
+                    <img src={customer.icon} alt='pic' className='w-20 h-20' />
+                    <div className='flex flex-col justify-center items-center'>
+                      <h3 className='font-medium'>{customer.name}</h3>
+                      <p className='text-xs'>{customer.details}</p>
+                    </div>
+                    <Button variant={"light"} sizes={"small"}>
+                      View Transaction
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>

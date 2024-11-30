@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { Link } from "react-router-dom";
 
-const Button = ({ variant, children, icon, to }) => {
+const Button = ({ variant, sizes, children, icon, to }) => {
   const ButtonStyle = cva(
     [
       "flex",
@@ -18,9 +18,9 @@ const Button = ({ variant, children, icon, to }) => {
           default: ["px-0", "py-0"],
           primary: [
             "bg-primary",
-            "hover:border",
-            "hover:border-black",
-            "hover:bg-white",
+            // "hover:border",
+            // "hover:border-black",
+            // "hover:bg-white",
             "px-6",
             "py-2",
           ],
@@ -29,18 +29,16 @@ const Button = ({ variant, children, icon, to }) => {
             "text-black",
             "border",
             "border-black",
-            "hover:bg-black",
-            "hover:text-white",
-            "px-6",
-            "py-2",
+            // "hover:bg-black",
+            // "hover:text-white",
           ],
           dark: [
             "bg-black",
             "text-white",
             "border",
             "border-black",
-            "hover:bg-white",
-            "hover:text-black",
+            // "hover:bg-white",
+            // "hover:text-black",
             "px-6",
             "py-2",
           ],
@@ -65,14 +63,19 @@ const Button = ({ variant, children, icon, to }) => {
             "font-light",
           ],
         },
+        sizes: {
+          default: ["px-6", "py-2"],
+          small: ["px-3", "py-1"],
+        },
       },
       defaultVariants: {
         variant: "default",
+        sizes: "default",
       },
     }
   );
 
-  const variantClass = ButtonStyle({ variant });
+  const variantClass = ButtonStyle({ variant, sizes });
 
   return (
     <div className={variantClass}>

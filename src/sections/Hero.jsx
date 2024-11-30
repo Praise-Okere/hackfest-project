@@ -22,7 +22,7 @@ const Hero = () => {
 
       {/* Buttons */}
       <div className='flex flex-wrap justify-center items-center gap-5'>
-        <Button variant={"primary"} to={"/connect-wallet"}>
+        <Button variant={"primary"} to={"/create-account"}>
           Create Account
         </Button>
         <Button variant={"light"}>Watch Tutorial</Button>
