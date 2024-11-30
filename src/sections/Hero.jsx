@@ -98,7 +98,7 @@ const Hero = () => {
 
         {/* Converter */}
         <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
-          <div className='flex items-center bg-white rounded-full gap-2 pr-4  w-full'>
+          <div className='flex items-center bg-white rounded-full gap-2 pr-4'>
             <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
               SUI
             </div>
@@ -113,7 +113,7 @@ const Hero = () => {
               ⇅
             </div>
           </div>
-          <div className='flex items-center bg-white rounded-full gap-2 pr-4 w-full'>
+          <div className='flex items-center bg-white rounded-full gap-2 pr-4'>
             <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
               NGN
             </div>
