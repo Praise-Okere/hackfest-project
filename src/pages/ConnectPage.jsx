@@ -1,60 +1,19 @@
-import { Link } from "react-router-dom";
-// import { useZK } from '../auth/getzkJWT';
-import { Ed25519Keypair } from "@mysten/sui/keypairs/ed25519";
-import { zkLoginClient } from "../zkLoginlient";
-import { GoogleLogin } from "@react-oauth/google";
+import { ConnectButton, useWallet } from "@suiet/wallet-kit";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ConnectPage = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { connected } = useWallet(); // destructuring the connect and disconnect function fron useWallet
+  const navigate  = useNavigate();
 
-  // Function to handle Google Login success
-  const handleLoginSuccess = async (response) => {
-    // The response contains the Google OAuth token, which we will use for authentication
-    const { credential } = response;
-
-    try {
-      setLoading(true);
-
-      // Step 1: Generate an ephemeral key pair (public and private keys)
-      const ephemeralKeyPair = Ed25519Keypair.generate();
-      const publicKey = ephemeralKeyPair.getPublicKey().toString('hex');
-      const privateKey = ephemeralKeyPair.getPrivateKey().toString('hex');
-
-      // Step 2: Generate a challenge (in practice, this could be a nonce or random string)
-      const challenge = 'some-random-challenge';  // Example challenge
-
-      // Step 3: Sign the challenge with the ephemeral private key
-      const signature = zkLoginClient.signWithPrivateKey(privateKey, challenge);
-
-      console.log('Signed Challenge:', signature);
-
-      // Step 4: Verify the signature using the public key
-      const isValid = zkLoginClient.verifySignature(publicKey, challenge, signature);
-
-      if (isValid) {
-        // Here, you would typically send the credential and the publicKey to your backend or zkLogin service
-        // for further verification and authentication (e.g., through your Sui smart contract).
-
-        console.log('User authenticated successfully via zkLogin!');
-        
-        // Step 5: After verification, authenticate the user
-        setUser({ googleCredential: credential, publicKey });
-      } else {
-        console.log('Authentication failed!');
-      }
-    } catch (error) {
-      console.error('Error during authentication:', error);
-    } finally {
-      setLoading(false);
+  // checks if wallet is connected, if not it routes you to the connect wallet screen
+  useEffect(() => {
+    if (!connected) {
+      navigate("/connect-wallet");
+    } else {
+      navigate('/dashboard')
     }
-  };
-
-  // Function to handle Google Login failure
-  const handleLoginFailure = (error) => {
-    console.error('Google login failed:', error);
-  };
-
+  }, [connected, navigate]);
 
   return (
     <div className='min-h-screen flex items-center justify-center '>
@@ -81,7 +40,6 @@ const ConnectPage = () => {
             ad minim veniam, quis nostrud exercitation ullamco.
           </p>
           <div className='flex flex-col items-center gap-4'>
-            <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginFailure} useOneTap>Google</GoogleLogin>
             <button className='flex items-center justify-between gap-12 w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>
               <svg
                 width='25'
@@ -111,8 +69,7 @@ const ConnectPage = () => {
               <span></span>
             </button>
             <span className='text-gray-400'>OR</span>
-            <Link
-              to={"/dashboard/home"}
+            <ConnectButton
               className='flex items-center justify-between w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'
             >
               <button className='flex items-center justify-between w-full'>
@@ -131,7 +88,7 @@ const ConnectPage = () => {
                 <p> Connect Sui Wallet</p>
                 <span></span>
               </button>
-            </Link>
+            </ConnectButton>
           </div>
           <a
             href='#'

@@ -1,14 +1,20 @@
+import { useWallet } from "@suiet/wallet-kit";
 import {
   ChartColumnIcon,
   LayoutDashboardIcon,
+  LogOut,
   Presentation,
   Settings,
   Users,
   Wallet,
 } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const SideNav = () => {
+  const { connected, disconnect } = useWallet(); // destructuring the connect and disconnect function fron useWallet
+  const navigate  = useNavigate();
+
   const links = [
     {
       name: "Dashboard",
@@ -36,6 +42,19 @@ const SideNav = () => {
       icon: Presentation,
     },
   ];
+
+  // checks if wallet is connected, if not it routes you to the connect wallet screen
+  useEffect(() => {
+    if (!connected) {
+      navigate.push("/");
+    }
+  }, [connected, navigate]);
+
+  const handleDisconnect = () => {
+    if (connected) {
+      disconnect();
+    }
+  };
 
   return (
     <aside className='bg-background border-r z-50 border-gray-800 h-screen p-4'>
@@ -75,6 +94,18 @@ const SideNav = () => {
           </NavLink>
         </div>
       </div>
+      <div className='mt-80 ml-1' onClick={handleDisconnect}>
+          <div
+            className={({ isActive }) =>
+              `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
+                isActive ? "bg-accent text-white" : "hover:bg-accentHover "
+              }`
+            }
+          >
+            <LogOut className='w-5 h-5' />
+            <span>LogOut</span>
+          </div>
+        </div>
     </aside>
   );
 };

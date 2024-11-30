@@ -1,6 +1,7 @@
 import { BellDotIcon, LayoutDashboard, SearchIcon } from "lucide-react";
 import Button from "./Button";
 import { useSidebar } from "../hooks/useSidebar";
+import { ConnectButton } from "@suiet/wallet-kit";
 
 const DashboardHeader = () => {
   const { toggleSidebar } = useSidebar();
@@ -27,7 +28,7 @@ const DashboardHeader = () => {
             </Button>
           </div>
           <div>
-            <Button variant={"light"}>User</Button>
+            <ConnectButton variant={"light"}>User</ConnectButton>
           </div>
         </div>
       </div>
