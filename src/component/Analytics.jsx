@@ -7,16 +7,7 @@ import PieChartComponent from "./PieChartComponent";
 import { useAccountType } from "../hooks/useAccountType";
 
 const Analytics = () => {
-  const img = [];
-
-  for (let i = 0; i < 6; i++) {
-    img.push(
-      <img key={i} src='/Group.png' alt='transfers' className='w-8 h-8' />
-    );
-  }
-
   const { isSidebarOpen } = useSidebar();
-  const { accountType } = useAccountType();
 
   const services = [
     {
@@ -98,6 +89,15 @@ const Analytics = () => {
     },
   ];
 
+  const { accountType } = useAccountType();
+
+  const img = [];
+
+  for (let i = 0; i < 6; i++) {
+    <img key={i} src='/Group.png' alt='' />;
+    img.push();
+  }
+
   return (
     <div
       className={`flex flex-col  ${isSidebarOpen ? "md:ml-[300px]" : "ml-0"}`}
@@ -107,7 +107,7 @@ const Analytics = () => {
       </div>
 
       <main className='m-5 mt-10'>
-        <div className='flex max-lg:flex-col justify-start max-md:items-center w-full h-screen items-start gap-8'>
+        <div className='flex max-lg:flex-col justify-start max-md:items-center w-full items-start gap-8'>
           <div className='flex flex-1 flex-col justify-center items-start gap-10'>
             <div className='my-7'>
               <div className='text-xl flex items-center gap-3'>
@@ -151,14 +151,13 @@ const Analytics = () => {
             </div>
 
             <div className='flex justify-center items-center gap-20 w-full font-medium'>
-              <div className='flex justify-center mt-8 items-end gap-6'>
-                <Button variant={"dashboard"}>View Transactions</Button>
-                <Button
-                  variant={"dashboardGray"}
-                  icon={<Download className='w-4' />}
-                >
-                  Export Statement
-                </Button>
+              <div className='flex flex-col justify-center items-center gap-3'>
+                <h3 className='text-[#FF0000]'>Net Outgoing</h3>
+                <p>$1,837,201.22</p>
+              </div>
+              <div className='flex flex-col justify-center items-center gap-3'>
+                <h3 className='text-[#2DBB53]'>Net Inflow</h3>
+                <p>$2,837,201.22</p>
               </div>
             </div>
 
@@ -274,57 +273,57 @@ const Analytics = () => {
             </div>
           )}
 
-          {accountType == "individual" && (
-            <div className='w-[1px] h-[1200px] bg-gray-800 max-lg:hidden'></div>
-          )}
-
           {accountType === "individual" && (
-            <div className='flex flex-col justify-center items-center mt-28 max-lg:mt-5 gap-10'>
-              {/* Balances Tab */}
-              <div className='flex flex-col justify-start items-start w-full gap-3'>
-                <div className='flex justify-center items-end gap-6'>
-                  Quick Payments
-                </div>
+            <div>
+              <div className='flex flex-col justify-center items-center mt-28 gap-10'>
+                {/* Balances Tab */}
+                <div className='flex flex-col justify-start items-start w-full gap-3'>
+                  <div className='flex justify-center items-end gap-6'>
+                    Quick Payments
+                  </div>
 
-                <div className='flex flex-col justify-center items-center gap-6 w-full'>
-                  {payments.map((payment, i) => (
-                    <div
-                      key={i}
-                      className='flex justify-between items-center w-full gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'
-                    >
-                      <div>
-                        <h3 className='font-medium'>{payment.name}</h3>
-                        <p className='font-light text-xxs'>{payment.details}</p>
+                  <div className='flex flex-col justify-center items-center gap-6 w-full'>
+                    {payments.map((payment, i) => (
+                      <div
+                        key={i}
+                        className='flex justify-between items-center w-full gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'
+                      >
+                        <div>
+                          <h3 className='font-medium'>{payment.name}</h3>
+                          <p className='font-light text-xxs'>
+                            {payment.details}
+                          </p>
+                        </div>
+                        <div>
+                          <button className='bg-gradient-to-r from-secondary to-accent px-8 py-[10px] rounded-2xl text-sm text-white'>
+                            Go
+                          </button>
+                        </div>
                       </div>
-                      <div>
-                        <button className='bg-gradient-to-r from-secondary to-accent px-8 py-[10px] rounded-2xl text-sm text-white'>
-                          Go
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Transactions Tab */}
-              <div className='flex flex-col justify-start items-start w-full gap-6'>
-                <div className='flex justify-center items-end gap-6'>
-                  Quick Transfer
+                    ))}
+                  </div>
                 </div>
 
-                <div className='flex justify-center items-center gap-6 w-full'>
-                  {img}
-                </div>
+                {/* Transactions Tab */}
+                <div className='flex flex-col justify-start items-start w-full gap-6'>
+                  <div className='flex justify-center items-end gap-6'>
+                    Quick Transfer
+                  </div>
 
-                <div className='flex justify-center items-center bg-white border border-black/30 py-3 px-8 rounded-2xl'>
-                  <input
-                    type='text'
-                    className='border-none outline-none w-[250px] text-center h-8 text-xs font-light'
-                    placeholder='Enter wallet address'
-                  />
-                </div>
-                <div className='flex justify-center items-center w-full  bg-black border border-black/30 py-3 px-8 rounded-2xl'>
-                  <button className='h-8 text-white'>Make Transfer</button>
+                  <div className='flex justify-center items-center gap-6 w-full'>
+                    {img}
+                  </div>
+
+                  <div className='flex justify-center items-center bg-white border border-black/30 py-3 px-8 rounded-2xl'>
+                    <input
+                      type='text'
+                      className='border-none outline-none w-[250px] text-center h-8 text-xs font-light'
+                      placeholder='Enter wallet address'
+                    />
+                  </div>
+                  <div className='flex justify-center items-center w-full  bg-black border border-black/30 py-3 px-8 rounded-2xl'>
+                    <button className='h-8 text-white'>Make Transfer</button>
+                  </div>
                 </div>
               </div>
             </div>

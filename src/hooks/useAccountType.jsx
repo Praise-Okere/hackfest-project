@@ -5,7 +5,7 @@ const AccountTypeContext = createContext();
 
 // Create provider for context
 export const AccountTypeProvider = ({ children }) => {
-  const [accountType, setAccountType] = useState("individual");
+  const [accountType, setAccountType] = useState("");
 
   const setIndividual = () => {
     setAccountType("individual");
