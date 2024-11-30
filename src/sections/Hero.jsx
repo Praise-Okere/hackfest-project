@@ -4,7 +4,7 @@ const Hero = () => {
   const features = ["Fast Transactions", "Easy Sign Up", "Ease of Usage"];
 
   return (
-    <div className='flex flex-col justify-center items-center gap-10 px-4 md:px-10'>
+    <div className='flex flex-col justify-center items-center gap-10 px-4 mb-10 md:px-10'>
       {/* Heading and Description */}
       <div className='flex flex-col justify-center items-center text-center mt-10 md:mt-28 md:mx-28'>
         <h1 className='text-3xl md:text-5xl font-medium leading-tight'>
@@ -99,7 +99,7 @@ const Hero = () => {
         {/* Converter */}
         <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-4 py-4 md:px-10 md:py-5 rounded-3xl w-full'>
           {/* SUI Input Section */}
-          <div className='flex justify-center items-center bg-white rounded-full w-full'>
+          <div className='flex justify-center items-center bg-white rounded-full'>
             <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               SUI
             </div>
@@ -118,7 +118,7 @@ const Hero = () => {
           </div>
 
           {/* NGN Input Section */}
-          <div className='flex justify-center items-center bg-white rounded-full w-full'>
+          <div className='flex justify-center items-center bg-white rounded-full '>
             <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               NGN
             </div>
