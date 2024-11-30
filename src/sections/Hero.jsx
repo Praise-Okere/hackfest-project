@@ -97,33 +97,42 @@ const Hero = () => {
         </div>
 
         {/* Converter */}
-        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
-          <div className='flex items-center bg-white rounded-full '>
-            <div className='bg-primary text-white rounded-full py-4 px-5 max-md:px-4 max-md:py-3 text-sm font-semibold'>
+        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-4 py-4 md:px-10 md:py-5 rounded-3xl w-full'>
+          {/* SUI Input Section */}
+          <div className='flex justify-center items-center bg-white rounded-full w-full'>
+            <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               SUI
             </div>
             <input
               type='text'
               value='32,128.21'
-              className='flex text-right rounded-full font-medium text-lg outline-none'
+              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
+
+          {/* Exchange Icon */}
           <div className='flex justify-center items-center'>
-            <div className='bg-gray-700 text-white rounded-full w-8 h-8 flex justify-center items-center'>
+            <div className='bg-gray-700 text-white rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center'>
               ⇅
             </div>
           </div>
-          <div className='flex items-center bg-white rounded-full'>
-            <div className='bg-primary text-white rounded-full py-4 px-5 max-md:px-1 max-md:py-3 text-sm font-semibold'>
+
+          {/* NGN Input Section */}
+          <div className='flex justify-center items-center bg-white rounded-full w-full'>
+            <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               NGN
             </div>
             <input
               type='text'
               value='₦12,431,542.21'
-              className='flex text-right rounded-full font-medium text-lg outline-none'
+              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
-          <Button variant={"dark"}>Convert</Button>
+
+          {/* Convert Button */}
+          <Button className='w-full md:w-auto' variant='dark'>
+            Convert
+          </Button>
         </div>
 
         {/* Stash Sent */}
