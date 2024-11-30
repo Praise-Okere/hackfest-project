@@ -99,14 +99,14 @@ const Hero = () => {
         {/* Converter */}
         <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-4 py-4 md:px-10 md:py-5 rounded-3xl'>
           {/* SUI Input Section */}
-          <div className='flex justify-center items-center bg-white rounded-full w-full'>
-            <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
+          <div className='flex justify-center items-center bg-white rounded-full max-w-[200px]'>
+            <div className='bg-primary text-white rounded-s-xl py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               SUI
             </div>
             <input
               type='text'
               value='32,128.21'
-              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
+              className='flex-grow text-right rounded-e-xl font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
 
@@ -118,14 +118,14 @@ const Hero = () => {
           </div>
 
           {/* NGN Input Section */}
-          <div className='flex justify-center items-center bg-white rounded-full w-full'>
-            <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
+          <div className='flex justify-center items-center bg-white rounded-full max-w-[200px]'>
+            <div className='bg-primary text-white rounded-s-xl py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
               NGN
             </div>
             <input
               type='text'
               value='₦12,431,542.21'
-              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
+              className='flex-grow text-right rounded-e-xl font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
 
