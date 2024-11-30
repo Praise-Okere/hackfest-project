@@ -2,12 +2,11 @@ import React, { useEffect, useRef } from "react";
 const features = [
   {
     name: "Fast Transactions",
-    imgUrl: "/group.png",
+    imgUrl: "/group2.png",
     description:
       "Sui blockchain is optimized for low-latency, high-throughput transactions. By leveraging parallel processing, it can handle multiple transactions simultaneously, making it ideal for financial services requiring instant payments, real-time asset transfers, and seamless trading experiences. This speed minimizes delays, enabling smooth, on-demand financial operations.",
     color: "from-blue-500 to-blue-800",
     tags: ["TESTING", "ANALYZE"],
-    imgUrl: "/groups.png",
   },
   {
     name: "Asset Ownership",
@@ -16,7 +15,6 @@ const features = [
       "Sui’s unique object-centric model gives users clear, verifiable ownership of digital assets. This structure ensures that each asset, whether currency, tokens, or other digital forms, has a defined owner. Such a model is beneficial for decentralized finance (DeFi) solutions, offering users greater control, transparency, and flexibility in asset management.",
     color: "from-blue-500 to-blue-800",
     tags: ["SECURE", "FAST"],
-    imgUrl: "/speed.png",
   },
   {
     name: "Security",
@@ -25,7 +23,6 @@ const features = [
       "Security on the Sui blockchain is robust, with mechanisms that prevent double-spending, fraud, and unauthorized access. By using a combination of consensus protocols and advanced cryptographic techniques, Sui ensures each transaction is secure and tamper-proof. This level of security is crucial for financial solutions that prioritize user protection and data integrity.",
     color: "from-blue-500 to-blue-800",
     tags: ["UI", "UX"],
-    imgUrl: "/vector.png",
   },
 ];
 

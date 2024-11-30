@@ -1,5 +1,6 @@
 import Navbar from "../component/Navbar";
 import FeatureCard from "../sections/FeaturesCard";
+import Footer from "../sections/Footer";
 import Hero from "../sections/Hero";
 
 const LandingPage = () => {
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <Navbar />
       <Hero />
       <FeatureCard />
+      <Footer />
     </main>
   );
 };
