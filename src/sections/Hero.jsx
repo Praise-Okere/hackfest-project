@@ -11,10 +11,14 @@ const Hero = () => {
           Building Bridges to Financial Inclusion for African Markets
         </h1>
         <p className='font-light text-sm md:text-base mt-4'>
-          A seamless banking experience for individuals, businesses,
-          governments, and NGOs—all powered by the Sui Blockchain. Empower your
-          financial journey with our comprehensive banking app. Secure, fast,
-          and designed for individuals, businesses, and organizations alike.
+          The Sui blockchain offers a transformative approach to addressing
+          financial inclusion challenges in African markets. By leveraging its
+          scalability, low transaction costs, and robust security, Sui enables
+          the development of innovative banking solutions that are accessible,
+          efficient, and transparent. These features empower underserved
+          populations by providing seamless access to financial services,
+          fostering economic participation, and driving sustainable growth
+          across the continent.
         </p>
       </div>
 
