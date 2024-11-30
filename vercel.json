@@ -9,23 +9,23 @@
       "dest": "/"
     },
     {
-      "src": "/home",
+      "src": "/dashboard/home",
       "dest": "/"
     },
     {
-      "src": "/finances",
+      "src": "/dashboard/finances",
       "dest": "/"
     },
     {
-      "src": "/analytics",
+      "src": "/dashboard/analytics",
       "dest": "/"
     },
     {
-      "src": "/customers",
+      "src": "/dashboard/customers",
       "dest": "/"
     },
     {
-      "src": "/guides-demos",
+      "src": "/dashboard/guides-demos",
       "dest": "/"
     },
     {
