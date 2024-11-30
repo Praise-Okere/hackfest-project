@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
+import { ConnectButton, useWallet } from "@suiet/wallet-kit";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ConnectPage = () => {
+  const { connected } = useWallet(); // destructuring the connect and disconnect function fron useWallet
+  const navigate  = useNavigate();
+
+  // checks if wallet is connected, if not it routes you to the connect wallet screen
+  useEffect(() => {
+    if (!connected) {
+      navigate("/connect-wallet");
+    } else {
+      navigate('/dashboard')
+    }
+  }, [connected, navigate]);
+
   return (
     <div className='min-h-screen flex items-center justify-center '>
       {/* <div className='absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[radial-gradient(circle, hsl(201, 70%, 88%) 0%, hsla(0, 0%, 100%, 0) 70%, rgb(233, 246, 254) 100%)]'></div> */}
@@ -57,6 +71,8 @@ const ConnectPage = () => {
             <Link
               to={"/dashboard/home"}
               className='flex items-center justify-between w-full max-w-sm bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'
+            <ConnectButton
+              className='flex items-center justify-between w-full max-w-xs bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'
             >
               <button className='flex items-center justify-between w-full'>
                 <svg
@@ -74,7 +90,7 @@ const ConnectPage = () => {
                 <p> Connect Sui Wallet</p>
                 <span></span>
               </button>
-            </Link>
+            </ConnectButton>
           </div>
           <a
             href='#'

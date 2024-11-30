@@ -1,6 +1,8 @@
+import { useWallet } from "@suiet/wallet-kit";
 import {
   ChartColumnIcon,
   LayoutDashboardIcon,
+  LogOut,
   Presentation,
   Settings,
   Users,
@@ -9,8 +11,13 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { useSidebar } from "../hooks/useSidebar";
 import { useEffect } from "react";
+import { useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const SideNav = () => {
+  const { connected, disconnect } = useWallet(); // destructuring the connect and disconnect function fron useWallet
+  const navigate = useNavigate();
+
   const links = [
     {
       name: "Dashboard",
@@ -100,6 +107,18 @@ const SideNav = () => {
             <Settings className='w-5 h-5' />
             <span>Logout</span>
           </NavLink>
+        </div>
+      </div>
+      <div className='mt-80 ml-1' onClick={handleDisconnect}>
+        <div
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
+              isActive ? "bg-accent text-white" : "hover:bg-accentHover "
+            }`
+          }
+        >
+          <LogOut className='w-5 h-5' />
+          <span>LogOut</span>
         </div>
       </div>
     </aside>
