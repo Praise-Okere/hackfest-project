@@ -12,16 +12,16 @@ import "@suiet/wallet-kit/style.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <AccountTypeProvider>
-        <SidebarProvider>
-          <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
-            <WalletProvider>
+    <WalletProvider>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
+        <BrowserRouter>
+          <AccountTypeProvider>
+            <SidebarProvider>
               <App />
-            </WalletProvider>
-          </GoogleOAuthProvider>
-        </SidebarProvider>
-      </AccountTypeProvider>
-    </BrowserRouter>
+            </SidebarProvider>
+          </AccountTypeProvider>
+        </BrowserRouter>
+      </GoogleOAuthProvider>
+    </WalletProvider>
   </StrictMode>
 );
