@@ -98,14 +98,14 @@ const Hero = () => {
 
         {/* Converter */}
         <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
-          <div className='flex items-center bg-white rounded-full gap-2 pr-4'>
-            <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
+          <div className='flex items-center bg-white rounded-full '>
+            <div className='bg-primary text-white rounded-full py-4 px-5 max-md:px-4 max-md:py-3 text-sm font-semibold'>
               SUI
             </div>
             <input
               type='text'
               value='32,128.21'
-              className='flex-grow text-right rounded-full font-medium text-lg outline-none'
+              className='flex text-right rounded-full font-medium text-lg outline-none'
             />
           </div>
           <div className='flex justify-center items-center'>
@@ -113,14 +113,14 @@ const Hero = () => {
               ⇅
             </div>
           </div>
-          <div className='flex items-center bg-white rounded-full gap-2 pr-4'>
-            <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
+          <div className='flex items-center bg-white rounded-full'>
+            <div className='bg-primary text-white rounded-full py-4 px-5 max-md:px-1 max-md:py-3 text-sm font-semibold'>
               NGN
             </div>
             <input
               type='text'
               value='₦12,431,542.21'
-              className='flex-grow text-right rounded-full font-medium text-lg outline-none'
+              className='flex text-right rounded-full font-medium text-lg outline-none'
             />
           </div>
           <Button variant={"dark"}>Convert</Button>
