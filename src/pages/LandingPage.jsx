@@ -1,4 +1,5 @@
 import Navbar from "../component/Navbar";
+import FeatureCard from "../sections/FeaturesCard";
 import Hero from "../sections/Hero";
 
 const LandingPage = () => {
@@ -6,6 +7,7 @@ const LandingPage = () => {
     <main>
       <Navbar />
       <Hero />
+      <FeatureCard />
     </main>
   );
 };
