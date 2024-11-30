@@ -8,11 +8,9 @@ import {
   Users,
   Wallet,
 } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSidebar } from "../hooks/useSidebar";
 import { useEffect } from "react";
-import { useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const SideNav = () => {
   const { connected, disconnect } = useWallet(); // destructuring the connect and disconnect function fron useWallet
@@ -67,6 +65,19 @@ const SideNav = () => {
       // Cleanup the event listener when the component unmounts
       return () => window.removeEventListener("resize", handleResize);
     }, []);
+  };
+
+  // checks if wallet is connected, if not it routes you to the connect wallet screen
+  // useEffect(() => {
+  //   if (!connected) {
+  //     navigate("/");
+  //   }
+  // }, [connected, navigate]);
+
+  const handleDisconnect = () => {
+    if (connected) {
+      disconnect();
+    }
   };
 
   return (

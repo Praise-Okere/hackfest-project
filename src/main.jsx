@@ -15,16 +15,13 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <AccountTypeProvider>
         <SidebarProvider>
-          <App />
+          <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
+            <WalletProvider>
+              <App />
+            </WalletProvider>
+          </GoogleOAuthProvider>
         </SidebarProvider>
       </AccountTypeProvider>
-      <SidebarProvider>
-        <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
-          <WalletProvider>
-            <App />
-          </WalletProvider>
-        </GoogleOAuthProvider>
-      </SidebarProvider>
     </BrowserRouter>
   </StrictMode>
 );
