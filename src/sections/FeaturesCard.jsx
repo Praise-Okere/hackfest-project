@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 const features = [
   {
     name: "Fast Transactions",
-    imgUrl: "/group2.png",
+    imgUrl: "/groups.png",
     description:
       "Sui blockchain is optimized for low-latency, high-throughput transactions. By leveraging parallel processing, it can handle multiple transactions simultaneously, making it ideal for financial services requiring instant payments, real-time asset transfers, and seamless trading experiences. This speed minimizes delays, enabling smooth, on-demand financial operations.",
     color: "from-blue-500 to-blue-800",
