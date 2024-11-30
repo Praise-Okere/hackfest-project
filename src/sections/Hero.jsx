@@ -12,7 +12,9 @@ const Hero = () => {
         </h1>
         <p className='font-light text-sm md:text-base mt-4'>
           A seamless banking experience for individuals, businesses,
-          governments, and NGOs—all powered by the Sui Blockchain.
+          governments, and NGOs—all powered by the Sui Blockchain. Empower your
+          financial journey with our comprehensive banking app. Secure, fast,
+          and designed for individuals, businesses, and organizations alike.
         </p>
       </div>
 

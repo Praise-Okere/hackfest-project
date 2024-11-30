@@ -42,7 +42,7 @@ const SideNav = () => {
       <div>
         <div className='flex justify-between items-center mb-8'>
           <Link to={"/"}>
-            <span>New Logo.</span>
+            <img src='/logo.png' alt='' />
           </Link>
         </div>
         <div className='flex flex-col gap-4'>

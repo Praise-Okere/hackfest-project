@@ -28,8 +28,8 @@ const Navbar = () => {
         }}
       >
         {/* Logo */}
-        <div className='text-lg font-bold'>
-          <span>New Logo.</span>
+        <div>
+          <img src='/logo.png' alt='' />
         </div>
 
         {/* Mobile Menu Icon */}
