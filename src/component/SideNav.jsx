@@ -63,7 +63,7 @@ const SideNav = () => {
         </div>
         <div className='mt-80 ml-1'>
           <NavLink
-            to='/settings'
+            to='/'
             className={({ isActive }) =>
               `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
                 isActive ? "bg-accent text-white" : "hover:bg-accentHover "
@@ -71,7 +71,7 @@ const SideNav = () => {
             }
           >
             <Settings className='w-5 h-5' />
-            <span>Settings</span>
+            <span>Logout</span>
           </NavLink>
         </div>
       </div>

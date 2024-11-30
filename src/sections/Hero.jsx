@@ -97,7 +97,7 @@ const Hero = () => {
         </div>
 
         {/* Converter */}
-        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-4 py-4 md:px-10 md:py-5 rounded-3xl w-full'>
+        <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-4 py-4 md:px-10 md:py-5 rounded-3xl'>
           {/* SUI Input Section */}
           <div className='flex justify-center items-center bg-white rounded-full w-full'>
             <div className='bg-primary text-white rounded-full py-3 px-4 md:py-4 md:px-5 text-xs md:text-sm font-semibold'>
