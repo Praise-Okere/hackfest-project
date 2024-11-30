@@ -1,93 +1,81 @@
-import { generateNonce, generateRandomness } from '@mysten/sui/zklogin';
+import { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google'; // For Google OAuth login
+import { Ed25519Keypair } from '@mysten/sui.js';  // For Sui ephemeral key pair
+import { zkLoginClient } from 'zkLogin'; // Hypothetical zkLogin client
 
-const FULLNODE_URL = 'https://fullnode.devnet.sui.io'; // replace with the RPC URL you want to use
-const suiClient = new SuiClient({ url: FULLNODE_URL });
-const { epoch, epochDurationMs, epochStartTimestampMs } = await suiClient.getLatestSuiSystemState();
+const App = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-const maxEpoch = Number(epoch) + 2; // this means the ephemeral key will be active for 2 epochs from now.
-const ephemeralKeyPair = new Ed25519Keypair();
-const randomness = generateRandomness();
-const nonce = generateNonce(ephemeralKeyPair.getPublicKey(), maxEpoch, randomness);
+  // Function to handle Google Login success
+  const handleLoginSuccess = async (response) => {
+    // The response contains the Google OAuth token, which we will use for authentication
+    const { credential } = response;
 
+    try {
+      setLoading(true);
 
+      // Step 1: Generate an ephemeral key pair (public and private keys)
+      const ephemeralKeyPair = Ed25519Keypair.generate();
+      const publicKey = ephemeralKeyPair.getPublicKey().toString('hex');
+      const privateKey = ephemeralKeyPair.getPrivateKey().toString('hex');
 
+      // Step 2: Generate a challenge (in practice, this could be a nonce or random string)
+      const challenge = 'some-random-challenge';  // Example challenge
 
+      // Step 3: Sign the challenge with the ephemeral private key
+      const signature = zkLoginClient.signWithPrivateKey(privateKey, challenge);
 
+      console.log('Signed Challenge:', signature);
 
-// import { createContext, useState, useContext, useEffect } from 'react';
-// import PropTypes from 'prop-types';  // Import PropTypes
-// import { zkLoginClient } from '../zkLoginClient'; // Assuming you created this as shown earlier
-// import { getAccountBalance, sendTransaction } from '../suiClient'; // Assuming you created this as shown earlier
+      // Step 4: Verify the signature using the public key
+      const isValid = zkLoginClient.verifySignature(publicKey, challenge, signature);
 
-// // Create a context
-// const AuthContext = createContext();
+      if (isValid) {
+        // Here, you would typically send the credential and the publicKey to your backend or zkLogin service
+        // for further verification and authentication (e.g., through your Sui smart contract).
 
-// // AuthProvider component to wrap your app
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [balance, setBalance] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(null);
+        console.log('User authenticated successfully via zkLogin!');
+        
+        // Step 5: After verification, authenticate the user
+        setUser({ googleCredential: credential, publicKey });
+      } else {
+        console.log('Authentication failed!');
+      }
+    } catch (error) {
+      console.error('Error during authentication:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-//   // Function to handle login using zkLogin
-//   const loginWithZK = async () => {
-//     try {
-//       setLoading(true);
-//       const loginResult = await zkLoginClient.login();
-//       if (loginResult) {
-//         setUser(loginResult.user);
-//         await fetchAccountBalance(loginResult.user);
-//       }
-//     } catch (error) {
-//       setError(error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  // Function to handle Google Login failure
+  const handleLoginFailure = (error) => {
+    console.error('Google login failed:', error);
+  };
 
-//   // Fetch Sui account balance after login
-//   const fetchAccountBalance = async (user) => {
-//     try {
-//       const balance = await getAccountBalance(user.suiAddress);
-//       setBalance(balance);
-//     } catch (error) {
-//       setError(error);
-//     }
-//   };
+  return (
+    <div>
+      <h1>Sui App - zkLogin Authentication with Google</h1>
 
-//   // Function to send a transaction using Sui
-//   const handleSendTransaction = async (transactionData) => {
-//     try {
-//       await sendTransaction(transactionData);
-//     } catch (error) {
-//       setError(error);
-//     }
-//   };
+      {/* Google OAuth Login Button */}
+      <GoogleLogin
+        onSuccess={handleLoginSuccess}
+        onError={handleLoginFailure}
+        useOneTap
+      />
 
-//   useEffect(() => {
-//     // Optionally check if user is already logged in or restore session on app load
-//   }, []);
+      {loading && <p>Authenticating...</p>}
 
-//   return (
-//     <AuthContext.Provider
-//       value={{
-//         user,
-//         balance,
-//         loading,
-//         error,
-//         loginWithZK,
-//         handleSendTransaction,
-//       }}
-//     >
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
+      {user && (
+        <div>
+          <h2>Welcome, User!</h2>
+          <p>Google ID: {user.googleCredential}</p>
+          <p>Public Key: {user.publicKey}</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
-// // Add PropTypes for children to ensure the correct prop type
-// AuthProvider.propTypes = {
-//   children: PropTypes.node.isRequired, // children must be a valid React node (string, element, etc.)
-// };
-
-// // Custom hook to use the context
-// export const useZK = () => useContext(AuthContext);
+export default App;

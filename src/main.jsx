@@ -4,15 +4,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { SidebarProvider } from "./hooks/useSidebar.jsx";
-import { AuthProvider } from "./auth/getzkJWT.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { AuthProvider } from "./auth/getzkJWT.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <SidebarProvider>
-        <AuthProvider>
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_CLIENT_ID}>
           <App />
-        </AuthProvider>
+        </GoogleOAuthProvider>
       </SidebarProvider>
     </BrowserRouter>
   </StrictMode>
