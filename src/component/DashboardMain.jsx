@@ -16,8 +16,8 @@ const DashboardMain = () => {
         <DashboardHeader />
       </div>
       <div className='m-5 mt-10'>
-        {accountType === "individual" && <DashboardIndividual />}
         {accountType === "business" && <DashboardBusiness />}
+        {accountType === "individual" && <DashboardIndividual />}
       </div>
     </div>
   );

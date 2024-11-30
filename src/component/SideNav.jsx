@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 const SideNav = () => {
   const { connected, disconnect } = useWallet(); // destructuring the connect and disconnect function fron useWallet
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const links = [
     {
@@ -46,7 +46,7 @@ const SideNav = () => {
 
   const { toggleSidebar } = useSidebar();
 
-  const handleToggle = () => {
+  const HandleToggle = () => {
     // Automatically handle sidebar state based on screen size
     useEffect(() => {
       const handleResize = () => {
@@ -93,7 +93,7 @@ const SideNav = () => {
             <NavLink
               key={i}
               to={link.path}
-              onClick={() => handleToggle()}
+              onClick={() => HandleToggle()}
               className={({ isActive }) =>
                 `flex items-center gap-3 p-2 rounded-md w-[80%] ml-1 hover:text-white ${
                   isActive ? "bg-accent text-white" : "hover:bg-accentHover "
@@ -108,7 +108,7 @@ const SideNav = () => {
         <div className='mt-80 ml-1'>
           <NavLink
             to='/'
-            onClick={() => handleToggle()}
+            onClick={() => HandleToggle()}
             className={({ isActive }) =>
               `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
                 isActive ? "bg-accent text-white" : "hover:bg-accentHover "
