@@ -21,9 +21,8 @@ const ConnectPage = () => {
         <div className='max-w-md text-center'>
           <h2 className='text-2xl font-bold mb-4'>Create an account</h2>
           <p className='text-gray-500 mb-8'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco.
+            Your gateway to seamless financial solutions. Safe, private, and
+            fast.
           </p>
           <div className='flex flex-col items-center gap-4'>
             <button className='flex items-center justify-between gap-12 w-full max-w-sm bg-[#A7D5EB] rounded-2xl py-3 px-4 text-gray-700'>

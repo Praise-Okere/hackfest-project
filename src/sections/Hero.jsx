@@ -11,12 +11,8 @@ const Hero = () => {
           Building Bridges to Financial Inclusion for African Markets
         </h1>
         <p className='font-light text-sm md:text-base mt-4'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          A seamless banking experience for individuals, businesses,
+          governments, and NGOs—all powered by the Sui Blockchain.
         </p>
       </div>
 
@@ -53,7 +49,7 @@ const Hero = () => {
       </div>
 
       {/* Info Cards */}
-      <div className='grid grid-cols-1 2xl:grid-cols-3 gap-10 md:gap-14 mt-10'>
+      <div className='grid grid-cols-1 xl:grid-cols-3 gap-10 md:gap-14 mt-10'>
         {/* Transaction Card */}
         <div className='flex flex-col justify-center items-center gap-6 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
           <div className='flex flex-col justify-center items-center gap-1'>
@@ -96,8 +92,8 @@ const Hero = () => {
 
         {/* Converter */}
         <div className='flex flex-col justify-center items-center gap-3 bg-secondary px-6 md:px-10 py-5 rounded-3xl w-full'>
-          <div className='flex items-center bg-white rounded-full gap-4 pr-4 w-full'>
-            <div className='bg-primary text-white rounded-full py-4 px-8 text-sm font-semibold'>
+          <div className='flex items-center bg-white rounded-full gap-2 pr-4  w-full'>
+            <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
               SUI
             </div>
             <input
@@ -111,8 +107,8 @@ const Hero = () => {
               ⇅
             </div>
           </div>
-          <div className='flex items-center bg-white rounded-full gap-4 pr-4 w-full'>
-            <div className='bg-primary text-white rounded-full py-4 px-8 text-sm font-semibold'>
+          <div className='flex items-center bg-white rounded-full gap-2 pr-4 w-full'>
+            <div className='bg-primary text-white rounded-full py-4 px-5 text-sm font-semibold'>
               NGN
             </div>
             <input

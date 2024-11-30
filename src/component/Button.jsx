@@ -79,10 +79,10 @@ const Button = ({ variant, sizes, children, icon, to }) => {
 
   return (
     <div className={variantClass}>
-      <div>
-        <Link to={to}>{children}</Link>
-      </div>
-      <div>{icon}</div>
+      <Link to={to} className='flex justify-center items-center gap-3'>
+        <div>{children}</div>
+        {icon && <div>{icon}</div>}
+      </Link>
     </div>
   );
 };

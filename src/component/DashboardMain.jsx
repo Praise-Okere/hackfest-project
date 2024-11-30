@@ -1,9 +1,12 @@
+import { useAccountType } from "../hooks/useAccountType";
 import { useSidebar } from "../hooks/useSidebar";
 import DashboardHeader from "./DashboardHeader";
-import DashboardTitle from "./DashboardTitle";
+import DashboardBusiness from "./DashboardBusiness";
+import DashboardIndividual from "./DashboardIndividual";
 
 const DashboardMain = () => {
   const { isSidebarOpen } = useSidebar();
+  const { accountType } = useAccountType();
 
   return (
     <div
@@ -13,7 +16,8 @@ const DashboardMain = () => {
         <DashboardHeader />
       </div>
       <div className='m-5 mt-10'>
-        <DashboardTitle />
+        {accountType === "individual" && <DashboardIndividual />}
+        {accountType === "business" && <DashboardBusiness />}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Download, Triangle } from "lucide-react";
 import Button from "./Button";
 import BarChartComponent from "./BarChartComponent";
 
-const DashboardTitle = () => {
+const DashboardBusiness = () => {
   const statistics = [
     {
       icon: (
@@ -276,4 +276,4 @@ const DashboardTitle = () => {
   );
 };
 
-export default DashboardTitle;
+export default DashboardBusiness;
