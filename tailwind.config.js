@@ -9,6 +9,8 @@ export default {
         secondary: "#A7D5EB",
         accent: "#2190C3",
         accentHover: "#166b93",
+        lightGray: "#D9D9D9C9",
+        darkGray: "#B2B2B2C9",
       },
     },
   },

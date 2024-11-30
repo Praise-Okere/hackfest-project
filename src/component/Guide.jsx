@@ -1,8 +1,6 @@
 import { useSidebar } from "../hooks/useSidebar";
 import DashboardHeader from "./DashboardHeader";
 
-import { Play } from "lucide-react";
-
 const Guide = () => {
   const { isSidebarOpen } = useSidebar();
 
