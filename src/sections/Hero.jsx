@@ -105,8 +105,9 @@ const Hero = () => {
             </div>
             <input
               type='text'
+              readOnly
               value='32,128.21'
-              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
+              className='flex text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
 
@@ -124,8 +125,9 @@ const Hero = () => {
             </div>
             <input
               type='text'
+              readOnly
               value='₦12,431,542.21'
-              className='flex-grow text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
+              className='flex text-right rounded-full font-medium text-sm md:text-lg p-3 outline-none'
             />
           </div>
 
