@@ -256,92 +256,85 @@ const DashboardIndividual = () => {
   ];
 
   return (
-    <div className='flex max-lg:flex-col justify-start max-md:items-center w-full h-screen items-start gap-8'>
-      <div className='flex flex-col justify-center items-start gap-10'>
+    <div className='flex flex-col lg:flex-row max-lg:flex-col justify-start w-full h-auto lg:h-screen items-start gap-8 px-4 py-6'>
+      {/* Left Section */}
+      <div className='flex flex-col justify-center items-start w-full lg:w-2/3 gap-8'>
+        {/* Welcome Message */}
         <div className='flex flex-col gap-4'>
-          <h3 className='text-xl font-medium'>Welcome back, Adebayo</h3>
-          <p className='font-light'>
-            Everyday brings its own challenges, you’ve got this
+          <h3 className='text-lg md:text-xl font-medium'>
+            Welcome back, Adebayo
+          </h3>
+          <p className='font-light text-sm md:text-base'>
+            Everyday brings its own challenges, you’ve got this.
           </p>
         </div>
-        <div className='flex items-center -z-30 text-white justify-between gap-36 max-md:gap-10 p-8 rounded-3xl max-w-[650px] bg-[#2190C3] border border-black/30'>
-          <div className='flex flex-col gap-5'>
-            <div>
-              <h3>Account Balance</h3>
-            </div>
-            <div>
-              <h3 className='text-lg font-medium'>$523,292.81</h3>
-              <h3 className='text-sm font-medium'>United States Dollar</h3>
-            </div>
+
+        {/* Account Balance */}
+        <div className='flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 bg-[#2190C3] text-white p-6 md:p-8 rounded-3xl w-full max-w-lg border border-black/30'>
+          <div className='flex flex-col gap-2'>
+            <h3 className='text-sm md:text-base'>Account Balance</h3>
+            <h3 className='text-lg md:text-xl font-medium'>$523,292.81</h3>
+            <h3 className='text-xs md:text-sm font-medium'>
+              United States Dollar
+            </h3>
           </div>
-          <div>
-            <Button variant={"dashboard"}>
-              <span className='text-[#2190C3]'>Fund Account</span>
-            </Button>
-          </div>
+          <Button className='w-full md:w-auto bg-white' variant='dashboard'>
+            <span className=' text-[#2190C3]'>Fund Account</span>
+          </Button>
         </div>
-        <div className='flex flex-col max-md:justify-center max-md:items-center gap-6'>
-          <div className='grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 max-w-[800px] '>
+
+        {/* Savings */}
+        <div className='flex flex-col gap-6'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {savings.map((saving, i) => (
               <div
                 key={i}
-                className='bg-white border-[0.24px] border-black/30 rounded-2xl'
+                className='bg-white border border-black/30 rounded-2xl p-4 flex flex-col items-center gap-4'
               >
-                <div className='flex flex-col justify-center items-center gap-2 py-6 h-full'>
-                  <div
-                    className={`w-12 h-12 flex justify-center items-center rounded-full`}
-                    style={{ backgroundColor: saving.color }}
-                  >
-                    {saving.icon}
-                  </div>
-                  <div className='flex flex-col justify-between gap-4 items-center'>
-                    <div className='flex flex-col justify-center items-center'>
-                      <h3 className='font-medium'>{saving.name}</h3>
-                      <p className='text-xs text-center'>{saving.details}</p>
-                    </div>
-                    <div>
-                      <span className='text-lg font-medium'>
-                        {saving.amount}
-                      </span>
-                    </div>
-                    <Button variant={"primary"} sizes={"small"}>
-                      View more
-                    </Button>
-                  </div>
+                <div
+                  className='w-12 h-12 flex justify-center items-center rounded-full'
+                  style={{ backgroundColor: saving.color }}
+                >
+                  {saving.icon}
                 </div>
+                <h3 className='font-medium'>{saving.name}</h3>
+                <p className='text-xs text-center'>{saving.details}</p>
+                <h3 className='text-lg font-medium'>{saving.amount}</h3>
+                <Button className='w-full' variant='primary' sizes='small'>
+                  View more
+                </Button>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Table */}
-        <div className='rounded-3xl max-w-[700px] bg-white border border-black/30 overflow-hidden'>
-          <table className='border-collapse border-spacing-0 text-left text-gray-700'>
+        {/* Transactions Table */}
+        <div className='rounded-3xl w-full max-w-lg bg-white border border-black/30 overflow-hidden'>
+          <table className='border-collapse w-full text-left text-gray-700'>
             <thead>
-              <tr className='bg-gray-200 text-sm font-medium'>
-                <th className='px-10 max-md:px-1 py-4'>Description</th>
-                <th className='px-10 max-md:px-1 py-4'>Amount</th>
-                <th className='px-10 max-md:px-1 py-4 max-md:hidden'>Date</th>
-                <th className='px-10 max-md:px-1 py-4'>Status</th>
+              <tr className='bg-gray-200 text-xs md:text-sm font-medium'>
+                <th className='px-4 py-2 md:px-6 md:py-4'>Description</th>
+                <th className='px-4 py-2 md:px-6 md:py-4'>Amount</th>
+                <th className='px-4 py-2 md:px-6 md:py-4 hidden md:table-cell'>
+                  Date
+                </th>
+                <th className='px-4 py-2 md:px-6 md:py-4'>Status</th>
               </tr>
             </thead>
             <tbody>
               {transactions.map((transaction, index) => (
-                <tr
-                  key={index}
-                  className={`border-t border-black/30 bg-gray-50`}
-                >
-                  <td className='px-6 max-md:px-2 py-4 text-sm font-light'>
+                <tr key={index} className='border-t border-black/30 bg-gray-50'>
+                  <td className='px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm font-light'>
                     {transaction.description}
                   </td>
-                  <td className='px-6 max-md:px-2 py-4 text-sm font-light'>
+                  <td className='px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm font-light'>
                     {transaction.amount}
                   </td>
-                  <td className='px-6 max-md:px-2 py-4 text-sm font-light max-md:hidden'>
+                  <td className='px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm font-light hidden md:table-cell'>
                     {transaction.date}
                   </td>
-                  <td className='px-6 py-4 text-sm font-light'>
-                    <span className='px-4 py-1 rounded-xl text-sm bg-green-100 text-green-600'>
+                  <td className='px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm font-light'>
+                    <span className='px-3 py-1 rounded-xl bg-green-100 text-green-600'>
                       {transaction.status}
                     </span>
                   </td>
@@ -352,56 +345,45 @@ const DashboardIndividual = () => {
         </div>
       </div>
 
+      {/* Divider */}
       <div className='w-[1px] h-[1200px] bg-gray-800 max-lg:hidden'></div>
 
-      {/* Right Side */}
-      <div className='flex flex-col justify-center items-center mt-28 max-lg:mt-5 gap-10'>
-        {/* Balances Tab */}
-        <div className='flex flex-col justify-start items-start w-full gap-3'>
-          <div className='flex justify-center items-end gap-6'>
-            Quick Payments
-          </div>
-
-          <div className='flex flex-col justify-center items-center gap-6 w-full'>
+      {/* Right Section */}
+      <div className='flex flex-col justify-center items-center w-full lg:w-1/3 gap-8'>
+        {/* Quick Payments */}
+        <div className='w-full'>
+          <h3 className='font-medium mb-4'>Quick Payments</h3>
+          <div className='flex flex-col gap-4'>
             {payments.map((payment, i) => (
               <div
                 key={i}
-                className='flex justify-between items-center w-full gap-3 bg-white px-4 py-4 pr-5 rounded-3xl border-[0.1px] border-black/30'
+                className='flex justify-between items-center bg-white px-4 py-4 rounded-3xl border border-black/30'
               >
                 <div>
                   <h3 className='font-medium'>{payment.name}</h3>
-                  <p className='font-light text-xxs'>{payment.details}</p>
+                  <p className='text-xs font-light'>{payment.details}</p>
                 </div>
-                <div>
-                  <button className='bg-gradient-to-r from-secondary to-accent px-8 py-[10px] rounded-2xl text-sm text-white'>
-                    Go
-                  </button>
-                </div>
+                <button className='bg-gradient-to-r from-secondary to-accent px-4 py-2 rounded-2xl text-sm text-white'>
+                  Go
+                </button>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Transactions Tab */}
-        <div className='flex flex-col justify-start items-start w-full gap-6'>
-          <div className='flex justify-center items-end gap-6'>
-            Quick Transfer
-          </div>
-
-          <div className='flex justify-center items-center gap-6 w-full'>
-            {img}
-          </div>
-
-          <div className='flex justify-center items-center bg-white border border-black/30 py-3 px-8 rounded-2xl'>
+        {/* Quick Transfer */}
+        <div className='w-full'>
+          <h3 className='font-medium mb-4'>Quick Transfer</h3>
+          <div className='bg-white border border-black/30 px-4 py-3 rounded-2xl mb-4'>
             <input
               type='text'
-              className='border-none outline-none w-[250px] text-center h-8 text-xs font-light'
               placeholder='Enter wallet address'
+              className='w-full text-center text-xs font-light border-none outline-none'
             />
           </div>
-          <div className='flex justify-center items-center w-full  bg-black border border-black/30 py-3 px-8 rounded-2xl'>
-            <button className='h-8 text-white'>Make Transfer</button>
-          </div>
+          <button className='w-full bg-black text-white py-3 rounded-2xl'>
+            Make Transfer
+          </button>
         </div>
       </div>
     </div>
