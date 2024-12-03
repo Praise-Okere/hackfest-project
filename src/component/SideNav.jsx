@@ -82,7 +82,7 @@ const SideNav = () => {
 
   return (
     <aside className='bg-background border-r z-50 border-gray-800 h-screen p-4'>
-      <div>
+      <div className=' flex flex-col h-full'>
         <div className='flex justify-between items-center mb-8'>
           <Link to={"/"}>
             <img src='/logo.png' alt='' />
@@ -105,31 +105,34 @@ const SideNav = () => {
             </NavLink>
           ))}
         </div>
-        <div className='mt-80 ml-1'>
-          <NavLink
-            to='/'
-            onClick={() => HandleToggle()}
-            className={({ isActive }) =>
-              `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
-                isActive ? "bg-accent text-white" : "hover:bg-accentHover "
-              }`
-            }
-          >
-            <Settings className='w-5 h-5' />
-            <span>Logout</span>
-          </NavLink>
-        </div>
-      </div>
-      <div className='mt-80 ml-1' onClick={handleDisconnect}>
-        <div
-          className={({ isActive }) =>
-            `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
-              isActive ? "bg-accent text-white" : "hover:bg-accentHover "
-            }`
-          }
-        >
-          <LogOut className='w-5 h-5' />
-          <span>LogOut</span>
+        <div className=' mt-auto ml-1'>
+          <div>
+            <NavLink
+              to={"/dashboard/settings"}
+              className={({ isActive }) =>
+                `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
+                  isActive ? "bg-accent text-white" : "hover:bg-accentHover "
+                }`
+              }
+            >
+              <Settings className='w-5 h-5' />
+              <span>Settings</span>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              to={"/"}
+              onClick={handleDisconnect}
+              className={({ isActive }) =>
+                `flex items-center gap-3 p-2 rounded-md w-[80%] hover:text-white ${
+                  isActive ? "bg-accent text-white" : "hover:bg-accentHover "
+                }`
+              }
+            >
+              <LogOut className='w-5 h-5' />
+              <span>LogOut</span>
+            </NavLink>
+          </div>
         </div>
       </div>
     </aside>
